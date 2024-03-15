@@ -10,6 +10,7 @@ public class Solution {
         System.out.println("Message Length:  "+message.length());
         // int[] count = new int[500];
         int count =0;
+        // Learning to push
         int j=0;
         for(int i = 0;i<message.length();i=j){
         count=0;
