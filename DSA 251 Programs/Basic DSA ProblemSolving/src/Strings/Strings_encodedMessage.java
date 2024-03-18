@@ -12,7 +12,7 @@ public class Strings_encodedMessage {
     }
 	public static String encode(String message) {
 
-        //use stringbuilder
+        // use stringbuilder
         StringBuilder encodeMsg = new StringBuilder(100000);
         String charCount = " ";
         System.out.println("Message :"+message);
