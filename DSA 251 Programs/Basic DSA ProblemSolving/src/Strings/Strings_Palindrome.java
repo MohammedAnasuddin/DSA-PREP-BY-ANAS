@@ -1,5 +1,7 @@
+package Strings;
 
-public class Solution {
+
+public class Strings_Palindrome {
     public static void main(String[] args) {
         //// System.out.println(12462799726421 - 12462788885278);
         // String number = "999";
@@ -65,7 +67,7 @@ for (i = 0; i <number.length(); i++) {
     System.out.println("mid Term in String: "+midTerm);
 
     int midDigits = Integer.parseInt(midTerm);
-
+//Rather than If Ladder incremnt rigt part(0->mid) upto mid-1 == mid
     if(midDigits==0){
         digits[firstMid] = 0;
         digits[secondMid]=0;
