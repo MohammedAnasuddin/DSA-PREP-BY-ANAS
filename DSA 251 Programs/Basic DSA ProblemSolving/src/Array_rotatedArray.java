@@ -27,10 +27,10 @@ public class Array_rotatedArray {
         arr.remove(0);
         arr.add(temp);
     }
-    // System.out.println("After Rotation");
-    // for (int p = 0; p < arr.size(); p++) {
-    //     System.out.print(arr.get(p)+" ");
-    // }
+    System.out.println("After Rotation");
+    for (int p = 0; p < arr.size(); p++) {
+        System.out.print(arr.get(p)+" ");
+    }
 
 
      return arr;   // Write your code here.

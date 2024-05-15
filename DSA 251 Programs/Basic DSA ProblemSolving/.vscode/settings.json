@@ -1,7 +1,12 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "code-builder.build.inputFilePath": "h:\\SKILLS\\DSA\\DSA 251 Programs\\Basic DSA ProblemSolving\\src\\input.txt",
+    "code-builder.build.outputFilePath": "h:\\SKILLS\\DSA\\DSA 251 Programs\\Basic DSA ProblemSolving\\src\\output.txt",
+    "code-builder.java.classPath": "h:\\SKILLS\\DSA\\DSA 251 Programs\\Basic DSA ProblemSolving\\src"
 }

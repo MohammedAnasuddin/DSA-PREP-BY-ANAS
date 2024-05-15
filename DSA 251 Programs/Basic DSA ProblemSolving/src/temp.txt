@@ -1,34 +1,29 @@
+if ((Integer.parseInt(mid)) <= 00)
+                    palindrome_number.append("00");
+                    else if ((Integer.parseInt(mid)) >= 1 && (Integer.parseInt(mid)) <=9){
+                        String real_palindrome_right = increment_number.substring((length/2), length);
+                        System.out.println("Real palindrome_Right: "+real_palindrome_right);
+                        System.out.println("palindrome_Right: "+palindrome_right);
+                        
+                        if(palindrome_right.equals(real_palindrome_right)){
+                                    palindrome_number.append(mid);
+                                    }
+                        else{
+                            int mid_digit = Integer.parseInt(mid);
+                            mid_digit++;
+                            palindrome_number.append(String.valueOf(mid_digit));
+                        }            
+                }
 
-public class Solution {
-    public static void main(String[] args) {
-        //// System.out.println(12462799726421 - 12462788885278);
-        String number = "3298934";
-        int length = 3;
-        nextLargestPalindrome(number, length);
-    }
 
-    public static String nextLargestPalindrome(String number, int length) {
-        // long i = 0;
-        // int j = 1;
-        // for (i = (Long.parseLong(number)+1), j = 1; i>Long.parseLong(number); i++, j++) {
-        //     String currentString = String.valueOf(i);
-        //     StringBuilder reversedString = new StringBuilder(String.valueOf(i));
 
-        //     reversedString.reverse();
-        //     // System.out.println("Current String: "+currentString);
-        //     // System.out.println("Reversed String :"+reversedString);
-            
-        //     if (reversedString.toString().equals(currentString)) {
 
-        //         break;
-        //     } else {
 
-        //         continue;
-        //     }
-        // }
+				
+2
 
-        // System.out.println("Final Return: " + String.valueOf(i));
-        // System.out.println("Number of Loops taken: " + j);
-        // return String.valueOf(i);
-    }
-}
+3
+
+Exception in thread  main  java.lang.ArrayIndexOutOfBoundsException: 1
+	at Solution.nextLargestPalindrome(Solution.java:98)
+	at Runner.main(Runner.java:14)

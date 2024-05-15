@@ -1,198 +1,193 @@
 package Strings;
-
-
+import java.util.*;
 public class Strings_Palindrome {
     public static void main(String[] args) {
         //// System.out.println(12462799726421 - 12462788885278);
-        // String number = "999";
-        // String number = "12462788885278";
-        // String number = "4654029508108";
-        String number = "1221";
-        // String number = "123824802643";
-        int length = 3;
-        nextLargestPalindrome(number, length);
+
+        // Odd
+
+        // String number = "12963";
+        // int length = 5;
+        
+        // Even
+        String number = "120963";
+        int length = 6;
+        
+
+
+
+        // Scanner iscan = new Scanner(System.in);
+        // // // Test case
+        // int length = iscan.nextInt();
+        // String number =iscan.nextLine() ;
+        // nextLargestPalindrome(number, length);
     }
 
     public static String nextLargestPalindrome(String number, int length) {
-        System.out.println("Current String(before Increment): "+number);
-    // char[] digits = new char[length];
-    int i,j;
-    long numOfString = Long.parseLong(number);
-    numOfString++;
-    number = String.valueOf(numOfString);
-    // digits = number.toCharArray(); 
-    System.out.println("Current String(after Increment): "+number);
-    length = number.length();
-    int[] digits = new int[number.length()];
+        System.out.println("String_Number: " + number);
+        long new_num = Long.parseLong(number);
+        new_num++;
+        String increment_number = String.valueOf(new_num);
 
-    
+        System.out.println("String_Number after incremnt: " + increment_number);
+        length = increment_number.length();
+        System.out.println("String_Number_Length: " + length);
+        System.out.println("Number_Nature: " + (length % 2 == 0 ? "Even" : "Odd"));
 
+        StringBuilder palindrome_number = new StringBuilder();
 
+        if (length == 1) {
+            System.out.println("Return: " + increment_number);
+            return increment_number;
+        } else if (length == 2) {
+            char digits[] = increment_number.toCharArray();
+            if (Character.getNumericValue(digits[0]) < Character.getNumericValue(digits[1])) {
+                palindrome_number.append(digits[1]);
+                palindrome_number.append(digits[1]);
+            } else {
+                palindrome_number.append(digits[0]);
+                palindrome_number.append(digits[0]);
+            }
+            System.out.println("Return: " + palindrome_number.toString());
+            return palindrome_number.toString();
+        } else {
+            String real_left, mid, real_right;
 
+            // System.out.println("length/2: "+length/2);
 
-if(length%2 == 0){
-    System.out.println("Given String is Even Considering two mids");
-    
+            if (length % 2 == 0) {
+                // Even No.of Elements
+                // no subtaction since substrig is inclusive at end index
+                // palindrome_number = new StringBuilder(increment_number.substring(0, (length /
+                // 2)));
 
-for (i = 0; i <number.length(); i++) {
-    digits[i] = Character.getNumericValue(number.charAt(i));
-}
-    System.out.print("Current digits:");
-    for(int p = 0;p<length;p++){
-        System.out.print(digits[p]+",");
-    }
-    System.out.println();
-    int firstMid , secondMid;
+                real_left = increment_number.substring(0, (length / 2) - 1);
+                mid = increment_number.substring((length / 2) - 1, (length / 2) + 1);
+                real_right = increment_number.substring(((length / 2) + 1), length);
 
-    firstMid = (length/2)-1;
-    secondMid = firstMid+1;
+            } else {
+                // Odd No. of elements
+                real_left = increment_number.substring(0, (length / 2));
+                mid = increment_number.substring((length / 2), (length / 2) + 1);
+                real_right = increment_number.substring(((length / 2) + 1), length);
 
-    System.out.println("FistMid Index: "+firstMid+" Element: "+digits[firstMid]);
-    System.out.println("SecondMid Index: "+secondMid+" Element: "+digits[secondMid]);
-    for(i=firstMid-1,j=secondMid+1;i>=0 && j<=(length-1);i--,j++){
-        System.out.println("------------------------");
-                System.out.println("i ="+i+"  element->"+digits[i]);
-                System.out.println("j ="+j+"  element->"+digits[j]);
+                // palindrome_number = new StringBuilder(increment_number.substring(0, (length /
+                // 2) - 1));
+                // -1 since 2 elemnts are mid for even
+            }
+
+            System.out.println("Left of the String: " + real_left);
+            System.out.println("Mid of the String: " + mid);
+            System.out.println("Right of the String: " + real_right);
+
+            palindrome_number.append(real_left);
+            System.out.println("Appended left to palindrome: " + palindrome_number.toString());
+
+            String palindrome_right = palindrome_number.reverse().toString();
+            palindrome_number.reverse();
+
+            // System.out.println("Builder before palindrome_Right:" +
+            // palindrome_number.toString());
+            // // palindrome_Right
+            // String palindrome_right = palindrome_number.reverse().toString();
+            // palindrome_number.reverse(); // So as to get left in correct oder becaiused
+            // reversed for palindrome_right
+            // System.out.println("palindrome_Right: " + palindrome_right);
+            // System.out.println("Builder afer palindrome_Right:" +
+            // palindrome_number.toString());
+
+            // // Mid
+            // // String mid;
+
+            // if (length % 2 != 0) {
+            // mid = increment_number.substring((length / 2), (length / 2)+1);
+            // System.out.println("Mid odd :" + mid);
+            // // Only one elmet a mid for odd
+            // } else {
+            // mid = increment_number.substring((length / 2) - 1, (length / 2) + 1);
+            // System.out.println("Mid odd :" + mid);
+
+            // // 2 elements for even
+            // }
+
+            System.out.println(palindrome_right+" <= "+real_right+" "+((Integer.valueOf(palindrome_right)) <= (Integer.valueOf(real_right))));
             
-                digits[j] = digits[i];
-    }
-    System.out.println("After Copying Left Half on Right Half");
-    for(int p = 0;p<length;p++){
-        System.out.print(digits[p]+",");
-    }
-    System.out.println();
-    System.out.println("Handling Mid Terms:");
-    System.out.println("Merging digits and converting it to INT");
-    String midTerm = digits[firstMid]+""+digits[secondMid];
-    System.out.println("mid Term in String: "+midTerm);
-
-    int midDigits = Integer.parseInt(midTerm);
-//Rather than If Ladder incremnt rigt part(0->mid) upto mid-1 == mid
-    if(midDigits==0){
-        digits[firstMid] = 0;
-        digits[secondMid]=0;
-    }
-    else if(midDigits>=1 && midDigits<=10){
-        digits[firstMid] = 1;
-        digits[secondMid]=1;
-    }
-    else if(midDigits>=11 && midDigits<=21){
-        digits[firstMid] = 2;
-        digits[secondMid]=2;
-    }
-    else if(midDigits>=22 && midDigits<=32){
-        digits[firstMid] = 3;
-        digits[secondMid]=3;
-    }
-    else if(midDigits>=33 && midDigits<=43){
-        digits[firstMid] = 4;
-        digits[secondMid]=4;
-    }
-    else if(midDigits>=44 && midDigits<=54){
-        digits[firstMid] = 5;
-        digits[secondMid]=5;
-    }
-    else if(midDigits>=55 && midDigits<=65){
-        digits[firstMid] = 6;
-        digits[secondMid]=6;
-    }
-    else if(midDigits>=66 && midDigits<=76){
-        digits[firstMid] = 7;
-        digits[secondMid]=7;
-    }
-    else if(midDigits>=77 && midDigits<=87){
-        digits[firstMid] = 8;
-        digits[secondMid]=8;
-    }
-    else{
-        digits[firstMid] = 9;
-        digits[secondMid]=9;
-    }
-
-    
-
-}
-
-else{
-    System.out.println("Given String is Odd Considering one mid");
-    int mid = (length/2);
-    System.out.println("mid Index: "+mid+" element->"+digits[mid]);
-    if(number.charAt(mid+1) > number.charAt(mid-1) ){
-        System.out.println("Have to increment leftHalf");
-    String leftHalf = number.substring(0, mid+1);
-    System.out.println("Left Half: "+leftHalf);
-    int leftHalfDigits = Integer.parseInt(leftHalf);
-    leftHalfDigits++;
-    System.out.println("Left Halfnafter incrementing:"+leftHalfDigits);
-
-    System.out.println("Modifying ht number String");
-    System.out.println("Orginal String:"+number);
-    number = String.valueOf(leftHalfDigits)+number.substring(mid+1);
-    System.out.println("New modified Number :"+number);
-    }
-    // boolean incrementMid = false;
-    // if(digits[mid+1]>digits[mid-1]){
-    //     incrementMid = true;
-    // }
-    
-
-for (i = 0; i <number.length(); i++) {
-    digits[i] = Character.getNumericValue(number.charAt(i));
-}
-    System.out.print("Current digits:");
-    for(int p = 0;p<length;p++){
-        System.out.print(digits[p]+",");
-    }
-    System.out.println();
-
-    for(i=mid-1,j=mid+1;i>=0 && j<=(length-1);i--,j++){
-        System.out.println("------------------------");
-        System.out.println("i ="+i+"  element->"+digits[i]);
-        System.out.println("j ="+j+"  element->"+digits[j]);
-    
-        digits[j] = digits[i];
-    }
-    System.out.println("After Copying Left Half on Right Half");
-    for(int p = 0;p<length;p++){
-        System.out.print(digits[p]+",");
-    }
-    System.out.println();
-
-    // if(incrementMid){
-    // String leftHalf = number.substring(0, mid+1);
-    
-
-    // System.out.println("Left Half: "+leftHalf);
-    // int leftIncrement = Integer.parseInt(leftHalf);
-    // leftIncrement++;
-    // System.out.println("Left half after Incrementing :"+leftIncrement);
+            char mid_digits[] = mid.toCharArray();
 
 
-    // leftHalf = String.valueOf(leftIncrement);
+            if ((Integer.parseInt(palindrome_right)) <= (Integer.parseInt(real_right))) {
 
-    // // if more than 2 digits changes after incremnt it won;t be  a palindrome aymore
-    // // for example 9 is the mid term then it changes it left element too then  it will not be a palindrome anymore
-    // }
-    
-}
+                if (mid.length() == 1 && (Integer.parseInt(mid)) < 9) {
+                    int mid_digit = Integer.parseInt(mid);
+                    mid_digit++;
+                    palindrome_number.append(String.valueOf(mid_digit));
+                } else {
 
-    
+                    if (((Integer.parseInt(mid)) >= 01 && (Integer.parseInt(mid)) < 11))
+                        palindrome_number.append("11");
+                    else if (((Integer.parseInt(mid)) >= 11 && (Integer.parseInt(mid)) < 22))
+                        palindrome_number.append("22");
+                    else if (((Integer.parseInt(mid)) >= 22 && (Integer.parseInt(mid)) < 33))
+                        palindrome_number.append("33");
+                    else if (((Integer.parseInt(mid)) >= 33 && (Integer.parseInt(mid)) < 44))
+                        palindrome_number.append("44");
+                    else if (((Integer.parseInt(mid)) >= 44 && (Integer.parseInt(mid)) < 55))
+                        palindrome_number.append("55");
+                    else if (((Integer.parseInt(mid)) >= 55 && (Integer.parseInt(mid)) < 66))
+                        palindrome_number.append("66");
+                    else if (((Integer.parseInt(mid)) >= 66 && (Integer.parseInt(mid)) < 77))
+                        palindrome_number.append("77");
+                    else if (((Integer.parseInt(mid)) >= 77 && (Integer.parseInt(mid)) < 88))
+                        palindrome_number.append("88");
+                    else {
+                        palindrome_number.append("99");
+                    }
+
+                }
+
+            }
+
+            else {
+                if(mid.length()==2 && mid_digits[0] != mid_digits[1]){
+                // The values whose right plaindrome is greater than palindrome real_right but mid does not palindrome
+                if (((Integer.parseInt(mid)) >= 01 && (Integer.parseInt(mid)) < 11))
+                        palindrome_number.append("11");
+                    else if (((Integer.parseInt(mid)) >= 11 && (Integer.parseInt(mid)) < 22))
+                        palindrome_number.append("22");
+                    else if (((Integer.parseInt(mid)) >= 22 && (Integer.parseInt(mid)) < 33))
+                        palindrome_number.append("33");
+                    else if (((Integer.parseInt(mid)) >= 33 && (Integer.parseInt(mid)) < 44))
+                        palindrome_number.append("44");
+                    else if (((Integer.parseInt(mid)) >= 44 && (Integer.parseInt(mid)) < 55))
+                        palindrome_number.append("55");
+                    else if (((Integer.parseInt(mid)) >= 55 && (Integer.parseInt(mid)) < 66))
+                        palindrome_number.append("66");
+                    else if (((Integer.parseInt(mid)) >= 66 && (Integer.parseInt(mid)) < 77))
+                        palindrome_number.append("77");
+                    else if (((Integer.parseInt(mid)) >= 77 && (Integer.parseInt(mid)) < 88))
+                        palindrome_number.append("88");
+                    else {
+                        palindrome_number.append("99");
+                    }
+
+                }
+                else{
+
+                    palindrome_number.append(mid);
+
+                }
 
 
+            }
 
+            System.out.println("Palindrome after mid: " + palindrome_number.toString());
 
+            palindrome_number.append(palindrome_right);
 
+            System.out.println("String with palindrome_right: " + palindrome_number.toString());
 
+            return palindrome_number.toString();
+        }
 
-    // number = String.copyValueOf(digits);
-    StringBuilder sb = new StringBuilder();
-    
-    for (int num : digits) {
-        sb.append(num);
-    }
-    
-    number = sb.toString();
-    System.out.println("Final Return :"+number);
-    return number;
     }
 }

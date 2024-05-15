@@ -1,13 +1,17 @@
 
+import java.util.*;
+
 public class Solution {
     public static void main(String[] args) {
         //// System.out.println(12462799726421 - 12462788885278);
         // String number = "999";
         // String number = "12462788885278";
         // String number = "4654029508108";
-        String number = "1221";
+        Scanner iscan = new Scanner(System.in);
+
+        int length = iscan.nextInt();
+        String number = iscan.nextLine();
         // String number = "123824802643";
-        int length = 3;
         nextLargestPalindrome(number, length);
     }
 
@@ -20,7 +24,7 @@ public class Solution {
     number = String.valueOf(numOfString);
     // digits = number.toCharArray(); 
     System.out.println("Current String(after Increment): "+number);
-    length = number.length();
+    //  length = number.length();
     int[] digits = new int[number.length()];
 
     

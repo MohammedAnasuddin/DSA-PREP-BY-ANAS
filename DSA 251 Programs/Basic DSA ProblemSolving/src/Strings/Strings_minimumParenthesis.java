@@ -6,10 +6,10 @@ public class Strings_minimumParenthesis {
 
     public static void main(String[] args) {
     //     int tc = 0;
-    // Scanner iscan = new Scanner(System.in);
+    Scanner iscan = new Scanner(System.in);
     // tc = iscan.nextInt();
     // String pattern = ")((()";
-    String pattern = ")())(";
+    String pattern = iscan.nextLine();
     
 
         
