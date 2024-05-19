@@ -35,6 +35,6 @@ public class counting_bits {
 
         System.out.print(" ]");
         System.out.println();
-        System.out.println("Modulo :" + sum % 1000000007);
+        System.out.println("Modulo:" + sum % 1000000007);
     }
 }
