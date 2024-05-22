@@ -1,59 +1,196 @@
-
-
-import java.util.* ;
-import java.io.*; 
 public class optimization {
     public static void main(String[] args) {
-    // String message = "tY75QbV6LjN2FzG3W1nD4cS7XoR8lP0mK9uH6iA4qE2wM3xZvC1gB5yT7uI8eR4oL2pS9aF6jD8vC0nB4mX5nH3bV7cA1zF6wM9xK8jU7hI0lN3pO2qE9rT6yJ4gA1zH5tY8uU2kX3jD9cA4zE7oR1qW3sF8mV6bT7uN2cX0lQ4wM8yN9bV6lC3bX5kU4gN3hJ2kM5jB7vT8yG0iL2eN5vH7gW1qB4sF6kN8hY0nT7iM3pX9kZ2mQ4wC7xV1gT6hJ3iB9oX5cT2yV4bH6jN0qZ7wD9iM4nT8yG1aS3fG5hK7eB8jT1lY0wX2zB6cN8yM0lF7kN3qH6tJ2uY9kW5xT0rG9zF2eC3jM6vQ0cT5gY8xS7oL9bR1yU4wJ2qB8vM4cG3hY9xZ1mT3nB5kD6rV0zE8hW7iB3mQ4nH8vF6uT1cJ7xV9yM2nS5hT0uJ3mB6fY8oQ2gN4kF7xV1jC3nH6bT0zX8mS9bR1yV4kQ5gA2jD6bV3nC8xW0zH5fJ7mV4yQ0cX9jB5vR3kF6nV2hT8yG5cS2dF9hJ6zV0nX8mB7vW1kN4gT6yH3cS7xM9jK2uN5cB0wQ3gA7mV4hS1eQ5bJ3nT6vY8kF0zA1xW9kZ2jN6gT0mQ8fD3nV7cS6gQ0vF9zH2xW4yK8iF3lN9mZ0xV6kY3nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ1xV7kY2nT1gM5dJ8fA2yN6kW0uV8zX2jS4mB9cW5yE7nV2hJ1gT4oM0iY7xW4nH1qS9xV6kA3jD5gT8vW0zX2bY6kF3nC8xW4yK9iF0lN9mZ";
-    String message = "bbbba";         
-    encode(message);
 
-    
+        String number = "12462788885278";
+        int length = 14;
+
+        nextLargestPalindrome(number, length);
+
     }
-	public static String encode(String message) {
 
-        // use stringbuilder
-        StringBuilder encodeMsg = new StringBuilder(100000);
-        String charCount = " ";
-        System.out.println("Message :"+message);
-        System.out.println("Message Length:  "+message.length());
-    
-    
-        int i, count=1;
-    
-        for(i = 1;i<=message.length()-1;i++){ 
-        System.out.println("------------------------");
-        System.out.println("i ="+i);
-        
+    public static String nextLargestPalindrome(String number, int length) {
 
-        if(message.charAt(i-1) == message.charAt(i) ){
-                System.out.println("Both are equal incrementing count");
-                count++;
-                System.out.println("Current charCount: "+count);
-                continue;
-        }
-        else{
-            encodeMsg.append(message.charAt(i));
-            encodeMsg.append(count);
-            System.out.println("Current Enccoded Message: "+encodeMsg);
-            count = 1;
-        }
+        long new_num = Long.parseLong(number);
+        new_num++;
+        number = String.valueOf(new_num);
 
+        length = number.length();
 
+        StringBuilder palindrome_number = new StringBuilder();
 
+        if (length == 1) {
 
-            
-            
+            return number;
+        } else if (length == 2) {
+            char digits[] = number.toCharArray();
+            if (Character.getNumericValue(digits[0]) < Character.getNumericValue(digits[1])) {
+                palindrome_number.append(digits[1]);
+                palindrome_number.append(digits[1]);
+            } else {
+                palindrome_number.append(digits[0]);
+                palindrome_number.append(digits[0]);
             }
+
+            return palindrome_number.toString();
+        } else {
+            String real_left, mid, real_right;
+
+            // System.out.println("length/2: " + length / 2);
+
+            if (length % 2 == 0) {
+                real_left = number.substring(0, (length / 2));
+                // mid = increment_number.substring((length / 2) - 1, (length / 2) + 1);
+                real_right = number.substring(((length / 2)), length);
+
+                // System.out.println("Even Left: "+real_left);
+                // System.out.println("Even Right: "+real_right);
+                palindrome_number.append(real_left);
+                palindrome_number.reverse();
+
+                if( Integer.parseInt(real_right)>Integer.parseInt(palindrome_number.reverse().toString())){
+                    // System.out.println("Need to increment the left");
+                    palindrome_number.setLength(0);
+                    // System.out.println("String builder resetted: "+palindrome_number.toString());
+                    real_left = String.valueOf(Integer.parseInt(real_left)+1);
+                    // System.out.println("Even Left after incrementing: "+real_left);
+                    
+                }
+                palindrome_number.append(real_left);
+                // System.out.println("String builder after appending incremented left: "+palindrome_number.toString());
+                real_right = palindrome_number.reverse().toString();
+                palindrome_number.reverse();
+                palindrome_number.append(real_right);
+
+
+            } else {
+
+                real_left = number.substring(0, (length / 2));
+                mid = number.substring((length / 2), (length / 2) + 1);
+                real_right = number.substring(((length / 2) + 1), length);
+
+                
+                palindrome_number.append(real_left);
+
+            String palindrome_right = palindrome_number.reverse().toString();
+            palindrome_number.reverse();
+
+            if (Integer.parseInt(palindrome_right) < Integer.parseInt(real_right)) {
+
+                if (mid.length() == 1) {
+
+                    if (Integer.parseInt(mid) < 9) {
+
+                        mid = String.valueOf(Integer.parseInt(mid) + 1);
+
+                    } else {
+
+                        mid = "0";
+
+                        real_left = String.valueOf(Integer.parseInt(real_left) + 1);
+
+                        palindrome_number.setLength(0);
+                        palindrome_number.append(real_left);
+                        palindrome_number.append(mid);
+                        palindrome_number.append(palindrome_right);
+
+                        number = nextLargestPalindrome(palindrome_number.toString(),
+                                palindrome_number.toString().length());
+                        return number;
+
+                    }
+                }
+
+                else {
+                    if (Integer.parseInt(mid) < 10) {
+                        mid = "11";
+                    } else if (((Integer.parseInt(mid)) >= 11 && (Integer.parseInt(mid)) < 22))
+                        mid = "22";
+
+                    else if (((Integer.parseInt(mid)) >= 22 && (Integer.parseInt(mid)) < 33))
+                        mid = "33";
+
+                    else if (((Integer.parseInt(mid)) >= 33 && (Integer.parseInt(mid)) < 44))
+                        mid = "44";
+
+                    else if (((Integer.parseInt(mid)) >= 44 && (Integer.parseInt(mid)) < 55))
+                        mid = "55";
+
+                    else if (((Integer.parseInt(mid)) >= 55 && (Integer.parseInt(mid)) < 66))
+                        mid = "66";
+
+                    else if (((Integer.parseInt(mid)) >= 66 && (Integer.parseInt(mid)) < 77))
+
+                        mid = "77";
+                    else if (((Integer.parseInt(mid)) >= 77 && (Integer.parseInt(mid)) < 88))
+
+                        mid = "88";
+                    else if (((Integer.parseInt(mid)) >= 88 && (Integer.parseInt(mid)) < 99))
+
+                        mid = "99";
+                    else {
+
+                        mid = "00";
+                        real_left = String.valueOf(Integer.parseInt(real_left) + 1);
+
+                        palindrome_number.setLength(0);
+                        palindrome_number.append(real_left);
+                        palindrome_number.append(mid);
+                        palindrome_number.append(palindrome_right);
+
+                        number = nextLargestPalindrome(palindrome_number.toString(),
+                                palindrome_number.toString().length());
+                        return number;
+
+                    }
+
+                }
+
+            }
+
+            if (mid.length() == 2) {
+                if (mid.charAt(0) != mid.charAt(1)) {
+
+                    if (Integer.parseInt(mid) < 10) {
+                        mid = "11";
+                    } else if (((Integer.parseInt(mid)) >= 11 && (Integer.parseInt(mid)) < 22))
+                        mid = "22";
+
+                    else if (((Integer.parseInt(mid)) >= 22 && (Integer.parseInt(mid)) < 33))
+                        mid = "33";
+
+                    else if (((Integer.parseInt(mid)) >= 33 && (Integer.parseInt(mid)) < 44))
+                    mid = "44";
+                    
+                    else if (((Integer.parseInt(mid)) >= 44 && (Integer.parseInt(mid)) < 55))
+                        mid = "55";
+
+                    else if (((Integer.parseInt(mid)) >= 55 && (Integer.parseInt(mid)) < 66))
+                        mid = "66";
+
+                    else if (((Integer.parseInt(mid)) >= 66 && (Integer.parseInt(mid)) < 77))
+
+                        mid = "77";
+                    else if (((Integer.parseInt(mid)) >= 77 && (Integer.parseInt(mid)) < 88))
+
+                        mid = "88";
+
+                    else
+                        mid = "99";
+
+                }
+                ;
+
+            }
+
+            palindrome_number.append(mid);
+
+            palindrome_number.append(palindrome_right);
+
             
-        
+        }
+        System.out.println("Next Palindrome: " + palindrome_number.toString());
+            return palindrome_number.toString();
+        }
 
-
-
-        //O(n^2)
-
-        System.out.println("Returning: "+encodeMsg);
-
-		return encodeMsg.toString();
-	}
+    }
 }

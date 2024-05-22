@@ -1,29 +1,10 @@
-if ((Integer.parseInt(mid)) <= 00)
-                    palindrome_number.append("00");
-                    else if ((Integer.parseInt(mid)) >= 1 && (Integer.parseInt(mid)) <=9){
-                        String real_palindrome_right = increment_number.substring((length/2), length);
-                        System.out.println("Real palindrome_Right: "+real_palindrome_right);
-                        System.out.println("palindrome_Right: "+palindrome_right);
-                        
-                        if(palindrome_right.equals(real_palindrome_right)){
-                                    palindrome_number.append(mid);
-                                    }
-                        else{
-                            int mid_digit = Integer.parseInt(mid);
-                            mid_digit++;
-                            palindrome_number.append(String.valueOf(mid_digit));
-                        }            
-                }
+
+Exception in thread  main  java.lang.NumberFormatException: For input string:   
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Solution.nextLargestPalindrome(Soluti
 
 
-
-
-
-				
-2
-
-3
-
-Exception in thread  main  java.lang.ArrayIndexOutOfBoundsException: 1
-	at Solution.nextLargestPalindrome(Solution.java:98)
+    	at Solution.nextLargestPalindrome(Solution.java:93)
 	at Runner.main(Runner.java:14)
