@@ -1,1 +1,6 @@
-One check failed returning 1
+Compilation Failed
+./Solution.java:35: error: reached end of file while parsing
+}
+ ^
+./Solution.java:8: error: cannot find symbol
+        for (int i = 0; i
