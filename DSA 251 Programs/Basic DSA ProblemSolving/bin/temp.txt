@@ -1,0 +1,171 @@
+            System.out.println("Loop j= "+j);
+            // > Printning the Top Row
+            if (j < end_column && i<=midRow ) {
+                System.out.println("----Printning the Top Row------");
+                System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                // System.out.print(matrix[i][j] + " ");
+                j++;
+                
+                // System.out.println("start_row: "+start_row);
+                // System.out.println("end_row: "+end_row);
+                // System.out.println("start_column: "+start_column);
+                // System.out.println("end_column: "+end_column);
+                
+                if (j == end_column) {
+                    start_row++;
+                    // System.out.println("j reached end column printing top row completed");
+                    
+                // System.out.println("**start_row**: "+start_row);
+                // System.out.println("end_row: "+end_row);
+                // System.out.println("start_column: "+start_column);
+                // System.out.println("end_column: "+end_column);
+                
+                // System.out.println("----Printning the Right Column------");
+                System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                i++; //> To Avoid printing it again
+                System.out.println("----------------------------------------");
+                
+                
+                // System.out.print(matrix[i][j] + " ");
+                
+                
+                
+            }
+        }
+
+
+            //> Printing the last Column
+
+            else if (i < end_row) {
+                System.out.println("----Printning the End Column------");
+                System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                // System.out.print(matrix[i][j] + " ");
+                i++;
+
+                // System.out.println("start_row: "+start_row);
+                // System.out.println("end_row: "+end_row);
+                // System.out.println("start_column: "+start_column);
+                // System.out.println("end_column: "+end_column);
+
+                if (i == end_row && j>=0) {
+                    end_column--;
+                    // System.out.println("j reached end row printing last column completed");
+                    
+                // System.out.println("start_row: "+start_row);
+                // System.out.println("end_row: "+end_row);
+                // System.out.println("start_column: "+start_column);
+                // System.out.println("**end_column**: "+end_column);
+
+                // System.out.println("----Printning the Right Column------");
+                System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                j--; 
+                System.out.println("----------------------------------------");
+                // System.out.print(matrix[i][j] + " ");
+                
+
+                }
+            }
+
+
+
+
+
+            
+            //> Printing the last 
+            else if (j > start_column) {
+                System.out.println("----Printning the last Row------");
+                System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                // System.out.print(matrix[i][j] + " ");
+                
+                if(j>0){
+
+                    j--;
+                }
+                else{
+                    continue;
+                }
+
+                // System.out.println("start_row: "+start_row);
+                // System.out.println("end_row: "+end_row);
+                // System.out.println("start_column: "+start_column);
+                // System.out.println("end_column: "+end_column);
+
+                if (j == start_column && j>=0) {
+                    end_row--;
+                    // System.out.println("j reached end row printing last column completed");
+                    
+                // System.out.println("start_row: "+start_row);
+                // System.out.println("end_row: "+end_row);
+                // System.out.println("start_column: "+start_column);
+                // System.out.println("**end_column**: "+end_column);
+
+                // System.out.println("----Printning the Right Column------")
+                System.out.println("----------------------------------------");
+                // System.out.print(matrix[i][j] + " ");
+                
+
+                }
+            }
+
+        // else if (j>start_column && j!=-1) {
+        //         System.out.println("start_column: "+start_column);
+        //         System.out.println("----Printning the Bottom Row------");
+        //         System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+        //         // System.out.print(matrix[i][j] + " ");
+            
+                
+        //         // System.out.println("start_row: "+start_row);
+        //         // System.out.println("end_row: "+end_row);
+        //         // System.out.println("end_column: "+end_column);
+                
+                
+        //         if (j == start_column ) {
+        //             // System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+        //             end_row--;
+        //             System.out.println("j reached start / printing last row completed");
+                    
+        //         // System.out.println("start_row: "+start_row);
+        //         // System.out.println("**end_row:**"+end_row);
+        //         // System.out.println("start_column: "+start_column);
+        //         // System.out.println("end_column: "+end_column);
+
+        //             // System.out.println("----Printning the Last Element------");
+        //             i--;
+        //             System.out.println("----------------------------------------");
+        //             // System.out.print(matrix[i][j] + " ");
+                    
+                    
+        //         }
+        //         else if(j>start_column && j!=0){
+        //             j--;
+        //         }
+        //         else{
+        //             continue;
+        //         }
+            
+        //     }
+
+
+
+            
+            //> Printing First Cloumn           
+            else{
+                System.out.println("Printing First Column");
+                System.out.println("j= "+j);
+                System.out.println("i= "+i);
+                if(i==start_row){
+                    System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                    start_column++;
+
+                    if(i/2 == matrix.length/2){
+                        break;
+                    }
+                    else{
+                        continue;
+                    }
+                }
+                else{
+                    System.out.println("i="+i+",j="+j+": "+matrix[i][j]);
+                    i--;
+                }
+            }
