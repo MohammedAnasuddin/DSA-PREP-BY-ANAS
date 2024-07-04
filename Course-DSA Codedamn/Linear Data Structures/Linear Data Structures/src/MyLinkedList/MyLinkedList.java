@@ -47,7 +47,7 @@ public class MyLinkedList {
 
             // > Now Traverse until traversing's nextNode is not equal to null
 
-            // x Don't use loop condition if nextNode of traversing is equal to
+            // x Don't use loop condition as nextNode of traversing is equal to
             // x since head does not point to null and loop will never start
 
             while (traversingNode.nextNode != null) {
@@ -62,8 +62,8 @@ public class MyLinkedList {
 
             // Tip: Go to ImplemetinLL.java Impelement the MyLinkedlist
 
-            // - Allnew Inserted nodes will point to null since nextNode is intialized to
-            // null in Node Class Constructor
+            // - All new Inserted nodes will point to null since nextNode is intialized to
+            // - null in Node Class Constructor
 
         }
 
@@ -90,11 +90,11 @@ public class MyLinkedList {
 
 
     public String toString() {
-        // Tip: Whenver a object of a class is printed using print methods . these
-        // methods call .toString() methodof that
+        // Tip: Whenver a object of a class is printed using print methods,these
+        // Tip: methods call .toString() method of that
         // Tip: class and print the return value of that method.
         // - If we create our own .toString() we can custom print rather than memory
-        // addresses
+        // - addresses
 
         StringBuilder nodeString = new StringBuilder();
         Node traversingNode = head; // > Traversing from start
@@ -113,6 +113,65 @@ public class MyLinkedList {
 
         return nodeString.toString();
 
+    }
+
+    boolean isLinkedListEmpty(){
+        return (head == null) && (tail==null);
+    }
+
+    void insertAtStart(int newValue){
+        Node newNode = new Node(newValue);
+        if(isLinkedListEmpty()) {
+            head = tail = newNode;
+        }
+        else{
+            newNode.nextNode = head; //> Point the next of newNode to head
+            head =newNode; //>  make newNode as head
+        }
+    }
+
+    int sumNodes(){
+        int sum = 0;
+        Node traversingNode = head;
+        if(isLinkedListEmpty()){
+            return 0;
+        }
+
+        while(traversingNode !=null){
+            sum+=traversingNode.data;
+            traversingNode = traversingNode.nextNode; //- This enables traversingNode to move across Linked List
+        }
+
+        return sum;
+    }
+
+    int indexOfNode(int toFind){
+        Node traversingNode = head;
+        int index = 0;
+
+            while(traversingNode !=null){
+                if(traversingNode.data == toFind){
+                    return index;
+                }
+                index++;
+                traversingNode = traversingNode.nextNode;
+            }
+            return -1;
+    
+    }
+
+    void insertAtIndex(int value, int atIndex){
+        Node newNode = new Node(value);
+        Node currentNode = head;
+        Node previousNode = null;
+
+        for(int i=0;i<atIndex && currentNode!=null;i++){
+            previousNode=currentNode;
+            currentNode = currentNode.nextNode;
+        }
+
+        previousNode.nextNode= newNode;
+        newNode.nextNode=currentNode;
     }
 
 }

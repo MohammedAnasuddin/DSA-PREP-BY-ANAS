@@ -1,12 +1,12 @@
 
 
-public class  Solution{
-    public static void main(String[] args) {
-        // int[][] matrix = { { 1, 2, 3, 4, 5 }, { 16, 17, 18, 19, 6 }, { 15, 24, 25, 20, 7 }, { 14, 23, 22, 21, 8 },
-        //         { 13, 12, 11, 10, 9 } };
-        int[][] matrix = { {1,2,3},{4,5,6},{7,8,9},{10,11,12} };
-        // int[][] matrix = { {0,0} };
+import java.util.ArrayList;
+import java.util.Arrays;
 
+public class Solution {
+    public static void main(String[] args) {
+        int[][] matrix = { { 9, 3 }, { 4, 0 }, { 4, 3 }, { 0, 0 }, { 1, 3 } };
+        System.out.println("Given Matrix");
         for (int[] row : matrix) {
             System.out.print("[");
             for (int num : row) {
@@ -15,94 +15,104 @@ public class  Solution{
             System.out.print("]");
             System.out.println();
         }
-        
-
-        spiralPrint(matrix);
+        setZeros(matrix);
     }
 
-    public static void spiralPrint(int matrix[][]) {
-        if(matrix.length<2){
-            System.out.println(" ");
-        }
-        else{
+    public static void setZeros(int matrix[][]) {
 
-            int start_row = 0;
-            int start_column = 0;
-            int end_row = matrix.length - 1;
-            int end_column = matrix[0].length - 1;
-    
-            int i = 0, j = 0;
-    
-            i = start_row;
-            j = start_column;
-            outer_loop: while (((start_row >= 0 && start_row <= end_row) && end_column < matrix[start_row].length)
-                    && (i >= 0 && j < matrix.length)) {
-    
-                for (j = start_column; j <= end_column && i == start_row;) {
-    
-                    if (j == end_column) {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        start_row++;
-    
-                        break;
-                    } else {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        j++;
-                    }
-    
+        ArrayList<ArrayList<Integer>> zero_indexes = new ArrayList<>();
+
+        for (int i = 0; i < matrix.length; i++) {
+
+            for (int j = 0; j < matrix[i].length; j++) {
+
+                if (matrix[i][j] == 0) {
+
+                zero_indexes.add(new ArrayList<>(Arrays.asList(i,j)));
+
                 }
-    
-                for (i = start_row; i <= end_row && j == end_column;) {
-    
-                    if (i == end_row) {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        end_column--;
-    
-                        break;
-                    } else {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        i++;
-                    }
+            }
+        }
+
+        System.out.println("Zero index");
+        for (ArrayList<Integer> cordinate : zero_indexes) {
+            System.out.print("[");
+            for (int num : cordinate) {
+                System.out.print(num + " ");
+            }
+            System.out.print("]");
+            System.out.println();
+        }
+
+        //Selecting the rows
+
+        ArrayList<Integer> zeroRows = new ArrayList<>();
+        for(int i =0; i<zero_indexes.size();i++){
+                // if(zero_indexes.get(i).get(0)  == zero_indexes.get(i+1).get(0) ){
+                if(zero_indexes.get(i).contains(zeroRows)){
+                    continue;
                 }
-    
-                for (j = end_column; j >= start_column && i == end_row;) {
-                    if (j == start_column) {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        end_row--;
-                        break;
-                    } else {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        j--;
-    
-                    }
+                else{
+                    zeroRows.add(zero_indexes.get(i).get(0));
                 }
-    
-                for (i = end_row; i >= start_row && j == start_column;) {
-                    if (i == start_row) {
-                        start_column++;
-    
-                        System.out.print(matrix[i][j] + " ");
-    
-                    } else {
-    
-                        System.out.print(matrix[i][j] + " ");
-                        i--;
-    
-                    }
-    
-                }
-    
+        }
+        //Selecting the columns
+        ArrayList<Integer> zeroColumns = new ArrayList<>();
+        for(int i =0; i<zero_indexes.size()-1;i++){ 
+            if(zero_indexes.get(i).get(1)  == zero_indexes.get(i+1).get(1)){
+                continue;
+            }
+            else{
+                zeroColumns.add(zero_indexes.get(i).get(1));
             }
 
 
-
-
         }
-    }
+System.out.print("Rows to make zer0: ");
+for(int n : zeroRows){
+    System.out.print(n+" ");
 }
+
+System.out.print("Columns to make zer0: ");
+for(int n : zeroColumns){
+    System.out.print(n+" ");
+}
+
+
+        for(int i = 0; i< zero_indexes.size();i++){
+    
+        //> Making the Row Zero
+        for(int row =0 ; row<matrix[zero_indexes.get(i).get(0)].length; row++){
+            if(matrix[zero_indexes.get(i).get(0)][row] == 0){
+                continue;
+            }
+            else{
+
+                matrix[zero_indexes.get(i).get(0)][row]=0;
+            }
+        }
+
+
+        //> Making the Column Zero
+        for(int column =0 ; column<matrix.length; column++){
+            if(matrix[column][zero_indexes.get(i).get(1)] == 0){
+                continue; 
+            }
+            else{
+
+                matrix[column][zero_indexes.get(i).get(1)] =0;
+            }
+        }
+
+        
+    } 
+
+
+
+
+
+
+}
+
+}
+

@@ -1,0 +1,74 @@
+[10 2 3 4 5 ]
+[16 17 18 19 6 ]
+[15 24 25 20 7 ]
+[14 23 22 21 8 ]
+[13 12 11 10 9 ]
+Matrix Intial Status:
+start_row: 0
+end_row: 4
+start_column: 0
+end_column: 4
+###############################
+----------------------------------------
+start_row: 0
+end_row: 4
+start_column: 0
+end_column: 4
+----------------------------------------
+*******************************************
+Printing The Top Row
+i=0,j=0: 10
+i=0,j=1: 2
+i=0,j=2: 3
+i=0,j=3: 4
+i=0,j=4: 5
+First Row Printed start_row= 1
+Printing The Last Column
+i=1,j=4: 6
+i=2,j=4: 7
+i=3,j=4: 8
+i=4,j=4: 9
+last Column Printed end_column= 3
+Printing The Last Row
+i=4,j=!3: 10
+i=4,j=!2: 11
+i=4,j=!1: 12
+i=4,j=-0: 13
+Printing The First Column
+i=3,j=0: 14
+i=2,j=0: 15
+i=1,j===0: 16
+----------------------------------------
+start_row: 1
+end_row: 3
+start_column: 1
+end_column: 3
+----------------------------------------
+*******************************************
+Printing The Top Row
+i=1,j=1: 17
+i=1,j=2: 18
+i=1,j=3: 19
+First Row Printed start_row= 2
+Printing The Last Column
+i=2,j=3: 20
+i=3,j=3: 21
+last Column Printed end_column= 2
+Printing The Last Row
+i=3,j=!2: 22
+i=3,j=-1: 23
+Printing The First Column
+i=2,j===1: 24
+----------------------------------------
+start_row: 2
+end_row: 2
+start_column: 2
+end_column: 2
+----------------------------------------
+*******************************************
+Printing The Top Row
+i=2,j=2: 25
+First Row Printed start_row= 3
+Printing The Last Column
+Printing The Last Row
+Printing The First Column
