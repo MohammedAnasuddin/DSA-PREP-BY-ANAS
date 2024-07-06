@@ -21,7 +21,8 @@ public class MyLinkedList {
 
     public MyLinkedList() {
         // > This is the constructor
-        head = null; // > intially head does not point
+        head = null;
+        tail = null;   // > intially head does not point
 
     }
 
@@ -39,7 +40,7 @@ public class MyLinkedList {
         }
         // > 2. If LinkedList is not empty
         // - Here, we need to link newNode to the head by traversing whole Linkedlist
-        // until null is found
+        //-  until null is found
 
         else {
             // > Travesal by a Node, which starts from head
@@ -59,6 +60,7 @@ public class MyLinkedList {
             // >Now make the traversingNode's nextNode as newNode we are creating
 
             traversingNode.nextNode = newNode;
+            // tail = newNode;
 
             // Tip: Go to ImplemetinLL.java Impelement the MyLinkedlist
 
@@ -86,6 +88,26 @@ public class MyLinkedList {
             // x Tail Insertion should be done in above order only
         }
 
+    }
+
+    public void reverseLinkedList(){
+
+        if(head == null || head.nextNode==null){
+            return ;
+        }
+
+        Node previous =null;
+        Node current = head;
+        Node next = head.nextNode;
+
+        while(next!=null){
+            current.nextNode = previous;
+            previous =  current;
+            current = next;
+            next = next.nextNode;
+        }
+        current.nextNode=previous;
+        head = current;
     }
 
 
@@ -173,5 +195,50 @@ public class MyLinkedList {
         previousNode.nextNode= newNode;
         newNode.nextNode=currentNode;
     }
+
+     public void deleteFirstNode(){
+        if(head == null || head.nextNode==null){
+            head=null;
+            return ;
+        }
+        Node ref = head.nextNode;
+        head.nextNode=null;
+        head=ref;
+    }
+
+
+    public void deleteLastNodeUsingTail(){
+          if(head == null || head == tail){
+            head=null;
+            return ;
+        }
+
+
+        Node current = head;
+        while(current.nextNode != tail){
+            // System.out.println("Current node:"+current.data+" Tail ="+tail.data);
+            current = current.nextNode;
+        }
+        current.nextNode=null;
+        tail = current;
+    }
+
+    public void deleteLastNode(){
+         if(head == null || head.nextNode == null){
+            head=null;
+            return ;
+        }
+
+        Node current = head;
+        Node n = head.nextNode;
+
+        while(n.nextNode !=null){
+            current = current.nextNode;
+             n = n.nextNode;
+        }
+        current.nextNode=null;
+    }
+
+
 
 }
