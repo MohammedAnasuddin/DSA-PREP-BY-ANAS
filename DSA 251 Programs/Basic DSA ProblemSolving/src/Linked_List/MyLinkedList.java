@@ -239,6 +239,24 @@ public class MyLinkedList {
         current.nextNode=null;
     }
 
+    public void createCycle(int intial, int Final){
+       Node intialNode = head;
+       Node finalNode = head;
+       
+       while(intialNode.data != intial){
+        intialNode = intialNode.nextNode;
+       }
+
+       while(finalNode.data != Final){
+        finalNode = finalNode.nextNode;
+       }
+       System.out.println("initaial Node: "+intialNode.data);
+       System.out.println("Final Node: "+finalNode.data);
+       
+       intialNode.nextNode = finalNode;
+       System.out.println("Cycle check: final.next: "+finalNode.nextNode.data);
+    }
+
 
 
 }
