@@ -24,7 +24,7 @@ public class kReverse {
           Tip: Store k in groupsize to make a recursive call for same group length
           > if kLast gets null return the the KFirst since it does not form a group cant be reversed
           > Iterate until kFirst equals to kLast with p = kFirst.next and c = p.next
-          > while itrating make p.next = kFirst
+          > while iterating make p.next = kFirst
           > if p or c becomes null break
           > Make a recursive call using p since p is the immediate node after the group
           >Link the result from recursive call to head(head is the last node in the group after reversed)
