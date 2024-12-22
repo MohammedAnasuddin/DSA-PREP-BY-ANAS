@@ -1,8 +1,8 @@
 
 /*
  > Approach: Dummy Node Technique
- -Whenever a problem is asked to create a new likned List create a dummy node wi
- - calue -1 and add all results nodes to it after that return dummyNode.next as head of the resultant list.
+ -Whenever a problem is asked to create a new likned List create a dummy node with
+ - value -1 and add all results nodes to it after that return dummyNode.next as head of the resultant list.
  >In this problem we will add the single Nodes and
  > sum % 10 -> Node Data and sum/10 is the carry 
  > this carry of previous um is added with the current sum
