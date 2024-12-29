@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "Tree.Binary_Search_Tree.main",
+            "projectName": "DSA_b8570101"
+        },
+        {
+            "type": "java",
             "name": "ReverseLL",
             "request": "launch",
             "mainClass": "ReverseLL",
