@@ -6,9 +6,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Implementing_BST",
+            "request": "launch",
+            "mainClass": "MyBinarySearchTree.Implementing_BST",
+            "projectName": "DSA_b8570101"
+        },
+        {
+            "type": "java",
             "name": "main",
             "request": "launch",
-            "mainClass": "Tree.Binary_Search_Tree.main",
+            "mainClass": "main",
             "projectName": "DSA_b8570101"
         },
         {

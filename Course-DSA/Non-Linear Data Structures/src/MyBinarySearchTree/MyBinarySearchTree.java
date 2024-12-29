@@ -1,4 +1,4 @@
-package Tree.Binary_Search_Tree;
+package MyBinarySearchTree;
 
 class TreeNode{
 
