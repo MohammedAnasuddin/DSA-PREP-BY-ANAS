@@ -10,5 +10,7 @@ public class Implementing_BST {
         tree.insertTreeNode(2);
         tree.insertTreeNode(5);
         tree.insertTreeNode(10);
+
+        System.out.println(tree.toString());
     }
-}   
+}    

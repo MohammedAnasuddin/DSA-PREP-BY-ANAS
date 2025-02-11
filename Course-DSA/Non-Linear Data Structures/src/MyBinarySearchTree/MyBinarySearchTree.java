@@ -3,8 +3,8 @@ package MyBinarySearchTree;
 class TreeNode{
 
     int data;
-    TreeNode leftChild;
-    TreeNode rightChild;
+    TreeNode left;
+    TreeNode right;
 
     public TreeNode(int data){
         this.data = data;
@@ -32,18 +32,19 @@ public class MyBinarySearchTree {
         TreeNode current = root;
         while(true){
             if(value<= current.data){ //> Goes to Left child
-                if(current.leftChild ==null){ 
-                    current.leftChild = new TreeNode(value);
+                if(current.left ==null){ 
+                    current.left = new TreeNode(value);
                     break;
-            }
-            current = current.leftChild;
-         }
+                 }
+                 current = current.left;
+             }
+             
             else{ //> Goes to Right Child
-                if(current.rightChild == null){
-                    current.rightChild = new TreeNode(value);
+                if(current.right == null){
+                    current.right = new TreeNode(value);
                     break;
                 }
-                current = current.rightChild;
+                current = current.right;
             }
         }
 
